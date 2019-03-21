@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author: hxy
- * @description: 登录相关Controller
- * @date: 2017/10/24 10:33
- */
+
 @RestController
 @RequestMapping("/login")
 public class LoginController {
@@ -29,6 +25,7 @@ public class LoginController {
      */
     @PostMapping("/auth")
     public JSONObject authLogin(@RequestBody JSONObject requestJson) {
+    	System.out.println("authLogin");
         CommonUtil.hasAllRequired(requestJson, "username,password");
         return loginService.authLogin(requestJson);
     }

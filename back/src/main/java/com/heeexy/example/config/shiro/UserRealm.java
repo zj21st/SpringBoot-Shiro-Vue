@@ -51,7 +51,7 @@ public class UserRealm extends AuthorizingRealm {
         String password = new String((char[]) authcToken.getCredentials());
         JSONObject user = loginService.getUser(loginName, password);
         if (user == null) {
-            //没找到帐号
+            // 没找到帐号
             throw new UnknownAccountException();
         }
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
